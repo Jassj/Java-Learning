@@ -1,8 +1,13 @@
 package leetcode;
 
 /**
- * @author yuanjie
- * @description:Completed
+ * description: Completed
+ * You are given two non-empty linked lists representing two non-negative integers.
+ * The digits are stored in reverse order and each of their nodes contain a single digit.
+ * Add the two numbers and return it as a linked list.
+ *
+ * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+ *
  * Example
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
@@ -11,8 +16,8 @@ package leetcode;
  * Input: (2 -> 4) + (5 -> 6 -> 9 -> 9)
  * Output: 7 -> 0 -> 0 -> 0 -> 1
  * Explanation: 42 + 9965 = 10007.
- * <p>考虑用例2的情况：最后一位相加为0需要进位
- * @date 2019/10/28 17:47
+ * @author yuanjie 2019/10/28 17:47
+ * 考虑用例2的情况：最后一位相加为0需要进位
  */
 public class AddTwoNumbers {
 
@@ -23,14 +28,14 @@ class ListNode {
     ListNode next;
     ListNode(int x) { val = x; }
 
-    public ListNode(int val, ListNode next) {
+    ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
 }
 
 class Solution {
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode resultList = new ListNode(0); //初始化结果链表
         ListNode resultListCopy = resultList;//指向堆中同一个对象,resultListCopy依次往下构造结果链
         int carryDigit = 0;
@@ -69,6 +74,6 @@ class Solution {
 //        用例2
         ListNode l1 =  new ListNode(2, new ListNode(4));
         ListNode l2 =  new ListNode(5, new ListNode(6, new ListNode(9 , new ListNode(9))));
-        addTwoNumbers(l1, l2);
+//        addTwoNumbers(l1, l2);
     }
 }
