@@ -91,7 +91,7 @@ public class Reflection_Test {
 
     /**
      * ①.getFields() 返回本类与继承的父类中所有的public成员变量
-     * ②.getDeclaredMethods() 返回本类中所有声明的成员变量
+     * ②.getDeclaredFields() 返回本类中所有声明的成员变量
      */
     private static void fieldTest() {
         Class<Reflection_Test> myClass = Reflection_Test.class;

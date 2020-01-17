@@ -1,9 +1,8 @@
 package leetcode;
 
 /**
+ * description 2019/10/25 17:41
  * @author yuanjie
- * @description
- * @date 2019/10/25 17:41
  */
 public class SymmetricTree {
 

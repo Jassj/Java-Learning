@@ -27,15 +27,15 @@ import java.util.List;
 public class Generic_Test {
 
     //打印通用数组
-    public static <E extends Comparable> E[] printArray(E[]...array) {
-        for(E[] element : array) {
-            for(E e : element) {
-                System.out.print(e + " ");
-            }
-            return element;
-        }
-        return array[0];
-    }
+//    public static <E extends Comparable> E[] printArray(E[]...array) {
+//        for(E[] element : array) {
+//            for(E e : element) {
+//                System.out.print(e + " ");
+//            }
+//            return element;
+//        }
+//        return array[0];
+//    }
 
     public static void getListValue(List<?> list) {
         System.out.println(list.get(0));
@@ -46,7 +46,7 @@ public class Generic_Test {
         String str[] = new String[] {"nice", "to", "meet", "you"};
 //        printArray(i);
 //        printArray(str);
-        printArray(i, str);
+//        printArray(i, str);
 //        List<String> strList = new ArrayList<String>();
 //        List<Integer> intList = new ArrayList<Integer>();
 //        strList.add("hello");

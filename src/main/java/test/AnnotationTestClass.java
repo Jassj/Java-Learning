@@ -6,20 +6,20 @@ import annotation.TestAnnotation;
 public class AnnotationTestClass {
 
     @TestAnnotation(value = "Field")
-    public String name;
+    private String name;
 
     @TestAnnotation(value = "Get Method")
-    public String getName() {
+    private String getName() {
         return name;
     }
 
     @TestAnnotation(value = "Set Method")
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
     @TestAnnotation()
-    public void testMethod() {
+    private void testMethod() {
 
     }
 }

@@ -2,9 +2,9 @@ package annotation;
 
 public class Record {
     @Field_Method_Parameter_Annotation(describe = "编号", type = int.class)
-    private int id;
+    int id;
     @Field_Method_Parameter_Annotation(describe = "姓名", type = int.class)
-    private String name;
+    String name;
 
     @Constructor_Annotation()
     public Record() {
@@ -19,6 +19,6 @@ public class Record {
     }
 
     public static void main(String[] args) {
-        Record record = new Record( 1, "李四");
+//        Record record = new Record( 1, "李四");
     }
 }
