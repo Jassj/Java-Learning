@@ -1,7 +1,7 @@
 package basicKnowledge;
 
 /**
- * description flow control
+ * description: flow control
  * @author yuanjie 2019/09/26 22:23
  */
 public class FlowControl {
@@ -19,7 +19,7 @@ public class FlowControl {
      * switch分支语句
      * ①.switch后表达式值只能为整型、字符型、字符串型,1.7版本及以上支持字符串
      * ②.case后变量值只能为整型、字符型、字符串型,1.7版本及以上支持字符串
-     * ③.从满足X的条件开始执行,直到break或者结束,无匹配时直接default,无default不执行
+     * ③.从满足x的条件开始执行,直到break或者结束,无匹配时直接default,无default不执行
      */
      public static void conditionStatement(int x) {
         switch(x) {
