@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.bean.ListNode;
+
 /**
  * description: Completed
  * You are given two non-empty linked lists representing two non-negative integers.
@@ -21,17 +23,6 @@ package leetcode;
  */
 public class AddTwoNumbers {
 
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
 }
 
 class Solution {
