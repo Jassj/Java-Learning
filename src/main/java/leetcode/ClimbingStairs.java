@@ -24,7 +24,6 @@ package leetcode;
  * 2.  1 阶 + 2 阶
  * 3.  2 阶 + 1 阶
  *
- * Todo 了解构造递归模型的方法，以及方法调用与返回顺序
  * @author yuanjie 2020/02/01 19:19
  */
 public class ClimbingStairs {

@@ -30,9 +30,6 @@ public class SquareRoot {
 //        return sqrtByMathFunction(x);
     }
 
-    //  ④.相关迭代法的算法测试： 最大公约数(欧几里得算法)、斐波那契数列
-
-
     //  ③.牛顿迭代法：(a + x / a) / 2 = b
     //  首先取x作为参照系, 每次计算的结果b作为下一次的参照系, 当参照系与结果b的误差小于指定值时, 可得近似平方根
     private static int sqrtByNewtonIteration(int x) {
