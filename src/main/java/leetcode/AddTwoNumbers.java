@@ -25,7 +25,7 @@ public class AddTwoNumbers {
 
     private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode resultList = new ListNode(0); //初始化结果链表
-        ListNode resultListCopy = resultList;//指向堆中同一个对象,resultListCopy依次往下构造结果链
+        ListNode resultListCopy = resultList; //指向堆中同一个对象,resultListCopy依次往下构造结果链
         int carryDigit = 0;
         while (l1 != null | l2 != null) {
             int val1 = l1 == null ? 0 : l1.val;

@@ -32,7 +32,7 @@ public class SymmetricTree {
         if(root == null) {
             return true;
         }
-        return isSymmetricByIteration(root);
+        return isSymmetricByBFS(root);
 //        return isSymmetricByRecursive(root.left, root.right);
     }
 
@@ -54,7 +54,7 @@ public class SymmetricTree {
     }
 
     // 使用队列存储断、迭代法进行广度优先遍历：判断每一级的树节点是否不对称的，如果存在不对称的情况则终止，否则继续
-    private static boolean isSymmetricByIteration(TreeNode root) {
+    private static boolean isSymmetricByBFS(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         if(root.left == null && root.right == null) {
             return true;
