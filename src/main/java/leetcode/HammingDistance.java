@@ -1,7 +1,5 @@
 package leetcode;
 
-import sun.security.util.Length;
-
 /**
  * description
  * 两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。
@@ -29,13 +27,19 @@ public class HammingDistance {
 
     private static int hammingDistance(int x, int y) {
 //        return hammingDistanceByBinaryString(x, y);
-        return hammingDistanceByXORAndBinary(x, y);
 //        return hammingDistanceByXORAndBinaryString(x, y);
+        return hammingDistanceByRightShift(x, y);
+//        return hammingDistanceByInternalFunction(x, y);
     }
 
-    // 两数异或后直接逐位判断1的数量 Todo
-    private static int hammingDistanceByXORAndBinary(int x, int y) {
-        return -1;
+    // 调用内置函数计算
+    private static int hammingDistanceByInternalFunction(int x, int y) {
+        return Integer.bitCount(x ^ y);
+    }
+
+    // 右移
+    private static int hammingDistanceByRightShift(int x, int y) {
+        return Integer.bitCount(x ^ y);
     }
 
     // 两数异或后转成无符号二进制字符串后逐位判断1的数量

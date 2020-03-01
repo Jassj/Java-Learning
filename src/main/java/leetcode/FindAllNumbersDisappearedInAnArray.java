@@ -32,11 +32,26 @@ public class FindAllNumbersDisappearedInAnArray {
     /**
      * 4,3,2,7,8,2,3,1,5
      * 1,2,3,4,5,6,7,8,9
-     * 遍历数组把 |nums[i]|-1 索引位置的元素标记为负数。即 nums[|nums[i]| - 1] * -1 。
-     * 然后遍历数组，若当前数组元素nums[i]为负数，说明我们在数组中存在数字 i+1。Todo
+     * 原理：1 ≤ nums[i] ≤ n ( n = 数组大小 ), 且有的元素出现两次，有的出现一次，有的消失
+     * ①.理想情况下没有消失的数字，且默认升序排序则 nums[i] = i + 1;(i 为索引)
+     * ②.因此想要消失的数组即可遍历数组把 |nums[i]|-1 索引位置的元素标记为负数。nums[|nums[i]| - 1] * -1
+     *   然后遍历数组，若当前数组元素nums[i]为负数，说明我们在数组中存在数字 i+1。否则，i+1不存在
      */
     private static List<Integer> findDisappearedNumbersByReversedNumber(int[] nums) {
-        return null;
+        List<Integer> list = new LinkedList<>();
+        int len = nums.length;
+        for(int i = 0; i < len; i++) {
+            int index = Math.abs(nums[i]) - 1;
+            if(nums[index] > 0) {
+                nums[index] = nums[index] * -1;
+            }
+        }
+        for(int i = 0; i < len; i++) {
+            if(nums[i] > 0) {
+                list.add(i+1);
+            }
+        }
+        return list;
     }
 
     // 排序后依次遍历，按照1-n的顺序判断当前索引值与实际值是否相等，不相等则为消失的元素，每次遍历定位实际值 = 索引值 + 1
