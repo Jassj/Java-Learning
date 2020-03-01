@@ -28,8 +28,20 @@ public class HammingDistance {
     private static int hammingDistance(int x, int y) {
 //        return hammingDistanceByBinaryString(x, y);
 //        return hammingDistanceByXORAndBinaryString(x, y);
-        return hammingDistanceByRightShift(x, y);
+//        return hammingDistanceByRightShift(x, y);
 //        return hammingDistanceByInternalFunction(x, y);
+        return hammingDistanceByBitAlgorithm(x, y);
+    }
+
+    // 每次移除等于1的最右比特位：与右移依次计算相比，减少了迭代操作
+    private static int hammingDistanceByBitAlgorithm(int x, int y) {
+        int distance = 0;
+        int xor = x ^ y;
+        while (xor != 0) {
+            distance++;
+            xor = xor & (xor - 1); // 此操作可移除等于1的最右比特位
+        }
+        return distance;
     }
 
     // 调用内置函数计算
@@ -37,12 +49,20 @@ public class HammingDistance {
         return Integer.bitCount(x ^ y);
     }
 
-    // 右移
+    // 右移并计算每一位是否为1
     private static int hammingDistanceByRightShift(int x, int y) {
-        return Integer.bitCount(x ^ y);
+        int distance = 0;
+        int xor = x ^ y;
+        while(xor != 0) {
+            if((xor & 1) == 1) { // 检查最右位是否为1可以使用 xor & 1
+                distance ++;
+            }
+            xor = xor >> 1;
+        }
+        return distance;
     }
 
-    // 两数异或后转成无符号二进制字符串后逐位判断1的数量
+    // 两数异或后转成无符号二进制字符串并逐位判断1的数量
     private static int hammingDistanceByXORAndBinaryString(int x, int y) {
         String binaryStr = Integer.toBinaryString(x ^ y);
         int distance = 0;
