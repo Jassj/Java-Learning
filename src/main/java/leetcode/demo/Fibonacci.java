@@ -10,7 +10,7 @@ package leetcode.demo;
 public class Fibonacci {
     // 递归和迭代的方式分别计算斐波那契数列
     private static int fibonacci(int n) {
-        if(n <= 0) { // 负数直接返回
+        if(n <= 0) { // 非正数默认返回0
             return 0;
         }
 //        return fibonacciByIteration(n);
