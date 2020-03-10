@@ -1,4 +1,4 @@
-package leetcode.demo.sortingAlgorithm;
+package leetcode.basicAlgorithm.sorting;
 
 /**
  * description: 快速排序算法

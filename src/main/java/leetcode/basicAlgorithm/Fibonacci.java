@@ -1,4 +1,4 @@
-package leetcode.demo;
+package leetcode.basicAlgorithm;
 
 /**
  * description:

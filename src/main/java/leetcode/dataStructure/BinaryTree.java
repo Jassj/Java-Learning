@@ -1,4 +1,4 @@
-package leetcode.demo;
+package leetcode.dataStructure;
 
 import leetcode.bean.TreeNode;
 

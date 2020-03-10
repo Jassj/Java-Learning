@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.demo.sortingAlgorithm.QuickSort;
+import leetcode.basicAlgorithm.sorting.QuickSort;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package leetcode;
 
 import leetcode.bean.TreeNode;
-import leetcode.demo.BinaryTree;
+import leetcode.dataStructure.BinaryTree;
 
 import java.util.Stack;
 
