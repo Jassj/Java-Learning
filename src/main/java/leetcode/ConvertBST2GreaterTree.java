@@ -1,7 +1,6 @@
 package leetcode;
 
 import leetcode.bean.TreeNode;
-import leetcode.dataStructure.BinaryTree;
 
 import java.util.Stack;
 
@@ -67,7 +66,6 @@ public class ConvertBST2GreaterTree {
     public static void main(String[] args) {
         TreeNode treeNode = new TreeNode(10, new TreeNode(8, new TreeNode(4), new TreeNode(9)),
                 new TreeNode(12, new TreeNode(11), new TreeNode(13)));
-        treeNode = convertBST(treeNode);
-        BinaryTree.binaryTreeSearch(treeNode); // 深度优先遍历累加树
+        convertBST(treeNode);
     }
 }

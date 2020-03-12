@@ -2,9 +2,7 @@ package leetcode.dataStructure;
 
 import leetcode.bean.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * description:
@@ -23,9 +21,9 @@ public class BinaryTree {
 //        binaryTreeDFSByPreOrderRecursive(root);
 //        binaryTreeDFSByInOrder(root);
 //        binaryTreeDFSByInOrderRecursive(root);
-        binaryTreeDFSByPostOrder(root);
+//        binaryTreeDFSByPostOrder(root);
 //        binaryTreeDFSByPostOrderRecursive(root);
-//        binaryTreeBFS(root);
+        binaryTreeBFS(root);
     }
 
     // 先(根/序)遍历二叉树(非递归、使用栈存储)：初始压入根节点，后续每次弹出节点时，依次压入右节点和左节点
@@ -42,7 +40,7 @@ public class BinaryTree {
             stack.push(treeNode.right);
             stack.push(treeNode.left);
         }
-        System.out.print("end");
+        System.out.println("end");
     }
 
     // 先(根/序)遍历二叉树(递归)
@@ -59,6 +57,7 @@ public class BinaryTree {
     private static void binaryTreeDFSByInOrder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curNode = root;
+        System.out.print("start-->");
         while(curNode != null || !stack.isEmpty()) {
             while(curNode != null) {
                 stack.push(curNode);
@@ -69,6 +68,7 @@ public class BinaryTree {
             System.out.print(treeNode.val+"-->");
             curNode = treeNode.right;
         }
+        System.out.println("end");
     }
 
     // 中(根/序)遍历二叉树(递归)
@@ -81,8 +81,31 @@ public class BinaryTree {
         binaryTreeDFSByInOrderRecursive(treeNode.right);
     }
 
-    // 后(根/序)遍历二叉树(非递归) Todo 待补充完善
+    /**
+     * 后(根/序)遍历二叉树(非递归)
+     * 1.前序遍历按照  根-左-右 的顺序进行
+     * 2.逆前序遍历按照 根-右-左 的顺序进行
+     * 3.后序遍历按照  左-右-根 的顺序进行
+     * 因此后序遍历是逆前序遍历的反向输出
+     */
     private static void binaryTreeDFSByPostOrder(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        List<Integer> list = new ArrayList<>();
+        while (!stack.empty()) {
+            TreeNode treeNode = stack.pop();
+            if(treeNode == null) {
+                continue;
+            }
+            list.add(treeNode.val);
+            stack.push(treeNode.left);
+            stack.push(treeNode.right);
+        }
+        System.out.print("start-->");
+        for(int i = list.size() - 1; i >= 0; i--) {
+            System.out.print(list.get(i)+"-->");
+        }
+        System.out.println("end");
     }
 
     // 后(根/序)遍历二叉树(递归)
@@ -109,7 +132,7 @@ public class BinaryTree {
             queue.offer(treeNode.left);
             queue.offer(treeNode.right);
         }
-        System.out.print("end");
+        System.out.println("end");
     }
 
     public static void main(String[] args) {
