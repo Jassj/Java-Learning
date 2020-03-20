@@ -33,7 +33,7 @@ public class HammingDistance {
         return hammingDistanceByBitAlgorithm(x, y);
     }
 
-    // 每次移除等于1的最右比特位：与右移依次计算相比，减少了迭代操作
+    // 快速计算二进制中1的个数: 每次移除等于1的最右比特位, 与右移依次计算相比，减少了迭代操作
     private static int hammingDistanceByBitAlgorithm(int x, int y) {
         int distance = 0;
         int xor = x ^ y;
