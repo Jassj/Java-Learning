@@ -1,7 +1,7 @@
 package leetcode.basicAlgorithm.sorting;
 
 /**
- * description
+ * description:
  * 堆排序
  * 1.堆的定义
  *   a.堆可以被看做一个近似的完全二叉树的数组对象, 堆中的元素由全部或部分数组构成
@@ -10,6 +10,7 @@ package leetcode.basicAlgorithm.sorting;
  *      父节点 = A[i / 2]
  *      左节点 = A[i * 2]
  *      右节点 = A[i * 2 + 1]
+ *      数组A[(n/2+1)...n]的元素都可以被当做叶节点
  * 2.建堆
  *   a.建立最小堆: A[PARENT(i)] <= A[i]
  *   b.建立最大堆: A[PARENT(i)] >= A[i]
@@ -21,7 +22,7 @@ public class HeapSort {
     private static void heapSort(int[] nums) {
         // 先建堆再排序
         buildMaxHeap(nums);
-        // 排序由小到大的顺序排序, 因此依次从尾到头取最大堆中的根节点, 取完后缩减堆并将新的根节点下沉以构造新的最大堆
+        // 排序由小到大的顺序排序, 因此依次从尾到头取最大堆中的根节点, 取完后缩减堆并根据新的根节点构造新的最大堆
         for(int len = nums.length, i = len - 1; i >= 1; i--) {
             int temp = nums[i];
             nums[i] = nums[0];
@@ -31,10 +32,9 @@ public class HeapSort {
     }
 
     /**
-     * 建立最大堆
-     * 前提条件: 数组A[1..n]的子数组A[(n/2+1)...n]都可以被当做叶节点
+     * 建立最大堆: 所有节点的值都大于其左右节点
      * 迭代: 依次将数组A[n/2...1]的值与其左右节点比较, 与左右节点中的最大值交换
-     * 递归：此节点下沉并递归进行操作
+     * 递归: 此节点下沉并递归进行操作
      */
     private static void buildMaxHeap(int[] nums) {
         for(int len = nums.length, i = len / 2; i >= 1; i--) {
@@ -52,6 +52,7 @@ public class HeapSort {
         if((curPosition << 1) + 1  <= heapSize && nums[curPosition << 1]  > nums[maxIndex]) {
             maxIndex = curPosition << 1;
         }
+
         // 如果比根节点大, 则进行交换
         if(nums[maxIndex] > nums[curIndex]) {
             int temp = nums[curIndex];
