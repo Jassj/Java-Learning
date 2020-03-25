@@ -9,16 +9,14 @@ package leetcode;
  * 输出: "bab"
  * 注意: "aba" 也是一个有效答案。
  *
- *
- * 反转字符串后：求两个字符串中最长相同子串,最长公共子序列法(LCS)--[aacdefcaa]存在问题需优化
  * @author yuanjie 2020/01/09 10:45
  */
 public class LongestPalindromeSubstring {
 
     private static String longestPalindrome(String s) {
-//        return longestPalindromeByAllChecked(s);
+        return longestPalindromeByAllChecked(s);
 //        return longestPalindromeByLCS(s);
-        return longestPalindromeByDynamicProgramming(s);
+//        return longestPalindromeByDynamicProgramming(s);
 //        return longestPalindromeByCenterExtension(s);
     }
 
@@ -26,7 +24,7 @@ public class LongestPalindromeSubstring {
         return null;
     }
 
-    //③.动态规划找出最长回文子串：Todo 空间复杂度可优化
+    //3.动态规划找出最长回文子串：Todo 空间复杂度可优化
     // 规则：
     // 长度1：p(i, j)   ==> i == j 时必为回文
     // 长度2：p(i, j)   ==> j == i + 1 && s[i] == s[j] 回文
@@ -74,8 +72,7 @@ public class LongestPalindromeSubstring {
         return ansStr;
     }
 
-    //②.反转后求两个字符串的最长公共子串
-    // 循环遍历找出反转字符串中子串是否在原串中
+    //2.反转后求两个字符串的最长公共子串：最长公共子序列法(LCS)
     // ==> 只能证明原串中有此子串和其反转,但并一定连续
     // ==> 并非强约束条件,当两串中间包含非回文串时(aacdefcaa)存在问题,需要增加子串索引判断
     // 长度为1的字符串特殊处理：Todo 方法待完善
@@ -88,12 +85,12 @@ public class LongestPalindromeSubstring {
         return null;
     }
 
-    //①.暴力法列出所有字符串并判断是否回文,找出最长子串：长度为1和2的字符串特殊处理
+    //1.暴力法列出所有字符串并判断是否回文,找出最长子串
     private static String longestPalindromeByAllChecked(String s) {
         String ansStr = "";
         for(int i = 0, len = s.length(); i < len; i++) {
             for(int j = i + 2; j <= len; j++) {
-                if(j - i == 2) {
+                if(j - i == 2) { // 长度为2的子字符串特殊处理
                     if (ansStr.length() < 2 && s.charAt(i) == s.charAt(j - 1)) {
                         ansStr = s.substring(i, j);
                     } else {
@@ -106,7 +103,7 @@ public class LongestPalindromeSubstring {
                 }
             }
         }
-        if("".equals(ansStr) && s.length() >= 1) {
+        if("".equals(ansStr) && s.length() >= 1) {  // 长度为1的子字符串特殊处理
             ansStr = s.substring(0, 1);
         }
         return ansStr;
