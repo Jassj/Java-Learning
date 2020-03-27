@@ -5,12 +5,12 @@ import java.lang.reflect.*;
 /**
  * @author yuanjie 2019/10/14 21:38
  * 优点
- * ①.反射可以在运行时操作类的属性和方法
- * ②.IOC功能非常依赖反射：如SpringMVC中beanFactory的装配
+ * 1.反射可以在运行时操作类的属性和方法
+ * 2.IOC功能非常依赖反射：如SpringMVC中beanFactory的装配
  * 缺点
- * ①.反射是在运行时使用的,会占用一定资源
- * ②.反射可以直接访问类,甚至可以访问private属性和方法,会破坏类的封装性而导致安全问题
- * <p>@Todo 反射的用途,如何在材料收转中发挥作用
+ * 1.反射是在运行时使用的,会占用一定资源
+ * 2.反射可以直接访问类,甚至可以访问private属性和方法,会破坏类的封装性而导致安全问题
+ * <p>
  * @see Class
  * @since 1.0-SNAPSHOT
  */
@@ -52,9 +52,9 @@ public class Reflection_Test {
     /**
      * use reflection to create Array
      * Those method to get Class
-     * ①.{@link Class#forName(String)}
-     * ②.Object.getClass
-     * ③.Class.class
+     * 1.{@link Class#forName(String)}
+     * 2.Object.getClass
+     * 3.Class.class
      * Essential method
      * @see Array#newInstance(Class, int)
      */
@@ -72,9 +72,9 @@ public class Reflection_Test {
 
     /**
      * usage of instance
-     * ①.isInstance():反射的Class中方法判断是否为某个类的实例
-     * ②.instance of:判断是否为某个类的实例
-     * ③.new instance:
+     * 1.isInstance():反射的Class中方法判断是否为某个类的实例
+     * 2.instance of:判断是否为某个类的实例
+     * 3.new instance:
      * a.通过反射Class来创建实例,默认调用无参构造方法,如果获取不到无参构造方法,则抛出异常
      * @throws  InstantiationException
      *          实例化异常,找不到类的无参构造函数{@link Class#newInstance()}
@@ -90,8 +90,8 @@ public class Reflection_Test {
     }
 
     /**
-     * ①.getFields() 返回本类与继承的父类中所有的public成员变量
-     * ②.getDeclaredFields() 返回本类中所有声明的成员变量
+     * 1.getFields() 返回本类与继承的父类中所有的public成员变量
+     * 2.getDeclaredFields() 返回本类中所有声明的成员变量
      */
     private static void fieldTest() {
         Class<Reflection_Test> myClass = Reflection_Test.class;
@@ -109,13 +109,13 @@ public class Reflection_Test {
     }
 
     /**
-     * ①.getMethods() 返回本类与继承的父类中所有的public方法
+     * 1.getMethods() 返回本类与继承的父类中所有的public方法
      * Identifies the set of all public members of a class or interface,
      * including inherited members.
-     * ②.getDeclaredMethods() 返回本类中所有声明的方法
+     * 2.getDeclaredMethods() 返回本类中所有声明的方法
      * Identifies the set of declared members of a class or interface.
      * Inherited members are not included.
-     * ③.getMethod() 返回指定的method对象  public member method
+     * 3.getMethod() 返回指定的method对象  public member method
      */
     public static void methodTest() throws Exception{
         //Methods
