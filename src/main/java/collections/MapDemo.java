@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * description
- * Map Demo
+ * Map Demo: HashMap & LinkedHashMap & TreeMap
  * @author yuanjie 2020/03/25 10:16
  */
 public class MapDemo {
