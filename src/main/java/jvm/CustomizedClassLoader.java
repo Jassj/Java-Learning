@@ -7,7 +7,7 @@ import java.io.*;
  * 自定义类加载器
  * @author yuanjie 2020/03/27 11:14
  */
-public class CustomizedClassLoader extends ClassLoader{
+public class CustomizedClassLoader extends ClassLoader {
 
     private final static String CUSTOM_CLASSLOADER_PATH = "D:\\classLoaderTest\\lib";
 

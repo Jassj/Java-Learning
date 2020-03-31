@@ -7,7 +7,7 @@ import java.net.URL;
  * 类加载器子系统
  * @author yuanjie 2020/03/27 10:35
  */
-public class ClassLoaderDemo {
+public class ClassLoaderTest {
     private static float f = 1.0f;
     private static boolean b = true;
     private static String s = "测试";
@@ -20,13 +20,13 @@ public class ClassLoaderDemo {
 
     private static int num = 2;
 
-    public ClassLoaderDemo() {
+    public ClassLoaderTest() {
         int a = 101;
     }
 
-    public void differentClassLoader() {
+    public static void differentClassLoader() {
         // 对于用户自定义类, 默认使用系统类加载器进行加载
-        ClassLoader appClassLoader1 = ClassLoaderDemo.class.getClassLoader();
+        ClassLoader appClassLoader1 = ClassLoaderTest.class.getClassLoader();
         System.out.println(appClassLoader1); // sun.misc.Launcher$AppClassLoader@18b4aac2
 
         // 系统类加载器
@@ -37,7 +37,7 @@ public class ClassLoaderDemo {
         ClassLoader extClassLoader = appClassLoader2.getParent();
         System.out.println(extClassLoader); // sun.misc.Launcher$ExtClassLoader@7f31245a
 
-        // 获取扩展类加载器的上层：引导类加载器, 获取不到
+        // 获取扩展类加载器的上层: 引导类加载器, 获取不到
         System.out.println(extClassLoader.getParent()); // null
 
         // String, System类都是用引导类加载器加载的, 因此获取不到
@@ -49,10 +49,11 @@ public class ClassLoaderDemo {
         for(URL url : urls) {
             System.out.println(url);
         }
+
     }
 
     public static void main(String[] args) {
-//        differentClassLoader();
+        differentClassLoader();
     }
 
 }

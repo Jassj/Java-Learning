@@ -5,7 +5,7 @@ package jvm;
  * 多线程调用加载静态块
  * @author yuanjie 2020/03/24 10:50
  */
-public class DeadThreadDemo {
+public class DeadThreadTest {
 
     public static void main(String[] args) throws InterruptedException {
         Runnable r = () -> {
