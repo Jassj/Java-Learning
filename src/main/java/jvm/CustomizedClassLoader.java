@@ -43,7 +43,7 @@ public class CustomizedClassLoader extends ClassLoader {
         return out.toByteArray();
     }
 
-    public static void main(String[] args) {
+    public static void doCustomizedClassLoader() {
         CustomizedClassLoader customizedClassLoader = new CustomizedClassLoader();
         try {
             Class<?> clazz = Class.forName("Custom", true, customizedClassLoader);
@@ -52,6 +52,10 @@ public class CustomizedClassLoader extends ClassLoader {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        doCustomizedClassLoader(); // 使用自定义类加载器加载class
     }
 
 }
