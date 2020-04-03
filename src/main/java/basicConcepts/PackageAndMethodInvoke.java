@@ -1,4 +1,4 @@
-package basicKnowledge;
+package basicConcepts;
 import java.util.Arrays;
 
 /*

@@ -1,13 +1,13 @@
 package test;
 
-import annotation.TestAnnotation;
+import advancedFeatures.annotation.TestAnnotation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
  *
- *annotation and reflect
+ *advancedFeatures.annotation and reflect
  *@author yuanjie 2019/10/8 19:18
  */
 public class Demo {

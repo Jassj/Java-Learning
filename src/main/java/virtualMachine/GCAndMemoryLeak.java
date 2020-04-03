@@ -1,4 +1,4 @@
-package basicKnowledge;
+package virtualMachine;
 
 import java.util.Arrays;
 

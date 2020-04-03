@@ -1,4 +1,4 @@
-package jvm;
+package virtualMachine;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package annotation;
+package advancedFeatures.annotation;
 
 public class Record {
     @Field_Method_Parameter_Annotation(describe = "编号", type = int.class)

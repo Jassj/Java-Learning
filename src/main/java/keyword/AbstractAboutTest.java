@@ -19,3 +19,20 @@ public class AbstractAboutTest extends AbstractClass{
         abstractClass.print(abstractClass.getAbstractName());
     }
 }
+
+abstract class AbstractClass {
+
+    private String abstractName;
+
+    abstract void print(String abstractName); // 抽象方式声明, 具体方法由继承类实现
+
+
+    public void setAbstractName(String abstractName) {
+        this.abstractName = abstractName;
+    }
+
+    String getAbstractName () { // 抽象类中可包含非抽象方法
+        return abstractName;
+    }
+}
+

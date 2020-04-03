@@ -1,4 +1,4 @@
-package jvm;
+package virtualMachine;
 
 /**
  * description
@@ -35,6 +35,7 @@ class Cat extends Animal implements Hunting{
         this();
     }
 
+    @Override
     public void eat() {
         System.out.println("猫吃鱼");
     }
@@ -43,6 +44,7 @@ class Cat extends Animal implements Hunting{
     public void hunt() {
         System.out.println("猫抓老鼠");
     }
+
 }
 
 class Fish extends Animal implements Hunting{

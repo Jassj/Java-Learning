@@ -1,6 +1,6 @@
 package test;
 
-import annotation.TestAnnotation;
+import advancedFeatures.annotation.TestAnnotation;
 
 @TestAnnotation(value = "Class")
 public class AnnotationTestClass {

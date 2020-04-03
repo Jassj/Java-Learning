@@ -4,14 +4,16 @@ package keyword;
  * description
  * final & finally & finalize
  * @author yuanjie 2020/03/28 16:55
+ * 非法组合: 无法同时声明一个类为final&abstract, Illegal combination of modifiers: 'final' and 'abstract'
+ * final abstract class FinalClass
+ * 无法继承final修饰的类，Cannot inherit from final 'keyword.FinalClass'
  */
-// 无法继承final修饰的类，Cannot inherit from final 'keyword.FinalClass'
 public class FinalAboutTest /*extends  FinalClass*/{
     final float PI = 3.14f; // final修饰的变量需要初始化
 
-//    public void setPI(float pi) {
+    public void setPI(float pi) {
 //        this.PI = pi; // final修饰的变量不能重新复制
-//    }
+    }
 
     final void print() {
         System.out.println("this method can not be override");
