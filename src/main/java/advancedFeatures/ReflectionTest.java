@@ -14,7 +14,7 @@ import java.lang.reflect.*;
  * @see Class
  * @since 1.0-SNAPSHOT
  */
-public class Reflection_Test {
+public class ReflectionTest {
     public String name;
     public int age;
     private static final float PI = 3.14f;
@@ -35,17 +35,17 @@ public class Reflection_Test {
         this.age = age;
     }
 
-    public Reflection_Test() {
+    public ReflectionTest() {
 
     }
 
-    public Reflection_Test(String name, int age) {
+    public ReflectionTest(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
     public static String getPerson(String name, int age) {
-        System.out.println("name{"+name+"},age{"+age+"}");
+        System.out.println("name{"+name+"}, age{"+age+"}");
         return "success";
     }
 
@@ -72,21 +72,21 @@ public class Reflection_Test {
 
     /**
      * usage of instance
-     * 1.isInstance():反射的Class中方法判断是否为某个类的实例
-     * 2.instance of:判断是否为某个类的实例
+     * 1.isInstance(): 反射的Class中方法判断是否为某个类的实例
+     * 2.instance of: 判断是否为某个类的实例
      * 3.new instance:
-     * a.通过反射Class来创建实例,默认调用无参构造方法,如果获取不到无参构造方法,则抛出异常
+     * a.通过反射Class来创建实例, 默认调用无参构造方法, 如果获取不到无参构造方法, 则抛出异常
      * @throws  InstantiationException
      *          实例化异常,找不到类的无参构造函数{@link Class#newInstance()}
      * b.通过反射Constructor来创建实例
      */
     public static void instanceTest() throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        Class<?> myClass = Reflection_Test.class;
+        Class<?> myClass = ReflectionTest.class;
         Object obj = myClass.newInstance();
         Constructor<?> constructor = myClass.getConstructor(String.class, int.class);
         Object obj2 = constructor.newInstance("Andy", 18);
         System.out.println(myClass.isInstance(obj));
-        System.out.println(obj2 instanceof Reflection_Test);
+        System.out.println(obj2 instanceof ReflectionTest);
     }
 
     /**
@@ -94,17 +94,17 @@ public class Reflection_Test {
      * 2.getDeclaredFields() 返回本类中所有声明的成员变量
      */
     private static void fieldTest() {
-        Class<Reflection_Test> myClass = Reflection_Test.class;
+        Class<ReflectionTest> myClass = ReflectionTest.class;
         Field[] fields = myClass.getFields();
         System.out.println("length:"+fields.length);
         for(Field field : fields) {
-            System.out.println("name{"+field.getName()+"},class{"+field.getClass()+"}");
+            System.out.println("name{"+field.getName()+"}, type{"+field.getType()+"}");
         }
 
         Field[] declaredFields = myClass.getDeclaredFields();
         System.out.println("declaredLength:"+declaredFields.length);
         for(Field field : declaredFields) {
-            System.out.println("name{"+field.getName()+"},class{"+field.getClass()+"}");
+            System.out.println("name{"+field.getName()+"}, type{"+field.getType()+"}");
         }
     }
 
@@ -119,11 +119,11 @@ public class Reflection_Test {
      */
     public static void methodTest() throws Exception{
         //Methods
-        Class<Reflection_Test> myClass = Reflection_Test.class;
+        Class<ReflectionTest> myClass = ReflectionTest.class;
         Method[] methods = myClass.getMethods();
         System.out.println("length:"+methods.length);
         for(Method method : methods) {
-            System.out.println("method{"+method+"},name{"+method.getName()+"},modifiers{"+ Modifier.toString(method.getModifiers())+"}");
+            System.out.println("method{"+method+"}, name{"+method.getName()+"}, modifiers{"+ Modifier.toString(method.getModifiers())+"}");
         }
 
         //DeclaredMethods
@@ -142,12 +142,12 @@ public class Reflection_Test {
 
     public static void main(String[] args) {
         try {
+//            instanceTest();
 //            fieldTest();
 //            methodTest();
-//            createArray();
-            instanceTest();
+            createArray();
         } catch (Exception e) {
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }
