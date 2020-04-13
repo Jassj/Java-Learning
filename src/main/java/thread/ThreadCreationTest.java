@@ -65,7 +65,6 @@ class MyThread extends Thread {
 }
 
 class CallableThreadTest implements Callable<Integer> {
-    private String threadName;
 
     @Override
     public Integer call() {
@@ -79,11 +78,6 @@ class CallableThreadTest implements Callable<Integer> {
             throw new RuntimeException("Illegal Thread Name");
         }
         return 0;
-    }
-
-    public CallableThreadTest(String threadName) {
-        this.threadName = threadName;
-        System.out.println("Creating " + threadName);
     }
 
 }
@@ -108,12 +102,20 @@ public class ThreadCreationTest {
 
     // 通过实现callable创建线程
     public static void callableThreadTest() throws ExecutionException, InterruptedException {
-        CallableThreadTest c0 = new CallableThreadTest("Thread-0");
-        CallableThreadTest c1 = new CallableThreadTest("Thread-1");
-        CallableThreadTest c2 = new CallableThreadTest("Thread-2");
-        FutureTask<Integer> f0 = new FutureTask<>(c0);
-        Thread t0 = new Thread(f0);
-        System.out.println(f0.get());
+        CallableThreadTest c = new CallableThreadTest();
+        FutureTask<Integer> f = new FutureTask<>(c);
+//        Thread t0 = new Thread(f, "Thread-0");
+//        t0.start();
+//        System.out.println(f.get());
+//        Thread t1 = new Thread(f, "Thread-1");
+//        t1.start();
+//        System.out.println(f.get());
+//        Thread t2 = new Thread(f, "Thread-2");
+//        t2.start();
+//        System.out.println(f.get());
+        Thread t3 = new Thread(f, "Thread-3");
+        t3.start();
+        System.out.println(f.get());
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
