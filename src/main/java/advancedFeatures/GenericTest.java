@@ -1,5 +1,6 @@
 package advancedFeatures;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Map;
  * @author yuanjie 2019/10/19 15:48
  */
 public class GenericTest<T> {
-    private T t;
+    public T t;
 
     public T getT() {
         return t;
@@ -34,8 +35,8 @@ public class GenericTest<T> {
         System.out.println("----结束打印----");
     }
 
-    public static void getListValue(List<?> list) {
-        System.out.println(list.get(0));
+    public static <T> T getListValue(List<T> list) {
+        return list.get(0);
     }
 
     public static void arrayGenericFunc() {
@@ -64,29 +65,36 @@ public class GenericTest<T> {
         GenericTest<Integer> integerGenericTest = new GenericTest<>();
         GenericTest<String> strGenericTest = new GenericTest<>();
         integerGenericTest.setT(1);
+//        integerGenericTest.setT("hello world"); 类型参数化, 编译期间检测, integerGenericTest只允许String类型
         strGenericTest.setT("hello world");
         System.out.println(integerGenericTest.getT());
         System.out.println(strGenericTest.getT());
+
+        // 类型擦除
+        Class clazz = integerGenericTest.getClass();
+        System.out.println(clazz.getName());
+
+        Field[] fields = clazz.getDeclaredFields();
+        for ( Field field : fields) {
+            System.out.println("Field name: " + field.getName() + ", type: " + field.getType().getName());
+        }
     }
 
     public static void fruitGenericFunc() {
-//        List<? extends Fruit> list1= new ArrayList<>();
-//        Fruit fruit = new Fruit();
-//        Apple apple = new Apple();
-//        SubApple subApple = new SubApple();
-//        list1.add(fruit);
+        List<? extends Fruit> list1 = new ArrayList<>();
+        Fruit fruit = new Fruit();
+        Apple apple = new Apple();
+        SubApple subApple = new SubApple();
+//        list1.add(fruit);           无法通过编译
 //        list1.add(new Apple());
 //        list1.add(new SubApple());
-//
-//        List<? extends Apple> list2 = new ArrayList<SubApple>();
-//        list2.add(new Fruit());
-//        list2.add(new Apple());
-//        list2.add(new SubApple());
-//
-//        List<Apple> list3 = new ArrayList<>();
-//        list3.add(new Fruit());
-//        list3.add(new Apple());
-//        list3.add(new SubApple());
+        fruit = list1.get(0); // 任意子类可隐式向上转换成父类
+
+        List<? super Apple> list2 = new ArrayList<>();
+//        list2.add(fruit);   无法通过编译
+        list2.add(apple);
+        list2.add(subApple);
+//        fruit = list2.get(0); 无法确定apple的父类
     }
 
     public static void main(String[] args) {
