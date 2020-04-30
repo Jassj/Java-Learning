@@ -58,15 +58,15 @@ public class BinaryTree {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curNode = root;
         System.out.print("start-->");
-        while(curNode != null || !stack.isEmpty()) {
-            while(curNode != null) {
+        while(curNode != null || !stack.isEmpty()) { // 依次向左遍历当前节点并压入栈中
+            while(curNode != null) { // 依次向左遍历当前节点并压入栈中
                 stack.push(curNode);
                 curNode = curNode.left;
             }
 
-            TreeNode treeNode = stack.pop();
+            TreeNode treeNode = stack.pop(); // 弹出栈顶元素(可保证其左节点已遍历过)
             System.out.print(treeNode.val+"-->");
-            curNode = treeNode.right;
+            curNode = treeNode.right; // 定位置其右节点
         }
         System.out.println("end");
     }

@@ -17,11 +17,11 @@ public class InsertSort {
         for(int i = 1, len = nums.length; i < len; i++) {
             int key = nums[i];
             int j = i - 1;
-            while(j >= 0 && nums[j] > key) {
+            while(j >= 0 && nums[j] > key) { // 寻找已排序好的数组中的插入位置, 大于待整理元素的右移
                 nums[j+1] = nums[j];
                 j = j - 1;
             }
-            nums[j+1] = key;
+            nums[j+1] = key; // 插入元素
         }
     }
 
