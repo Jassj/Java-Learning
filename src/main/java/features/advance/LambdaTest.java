@@ -1,4 +1,4 @@
-package features;
+package features.advance;
 
 /**
  * description
@@ -18,6 +18,9 @@ public class LambdaTest {
         return mathOperation.operation(a, b);
     }
 
+    /**
+     * Lambda 表达式示例1
+     */
     public static void LambdaFunction1() {
         MathOperation addition = Integer::sum;
         MathOperation subtraction = (int a, int b) -> a - b;
@@ -70,6 +73,9 @@ public class LambdaTest {
         int method(int a, int b);
     }
 
+    /**
+     * Lambda表达式示例2
+     */
     public static void LambdaFunction2() {
         NoReturnNoParam noReturnNoParam = () ->  System.out.println("i'm no return no param interface");
         noReturnNoParam.method();
@@ -81,8 +87,19 @@ public class LambdaTest {
         System.out.println("my return value is " + returnMultiParam.method(2, 2));
     }
 
+    /**
+     * Lambda表达式中变量作用域
+     */
+    public static void variableScope() {
+        int x = 2;
+        ReturnOneParam returnOneParam = a -> a + x;
+        returnOneParam.method(1);
+//        x = 3;
+    }
+
     public static void main(String[] args) {
 //        LambdaFunction1();
-        LambdaFunction2();
+//        LambdaFunction2();
+        variableScope();
     }
 }

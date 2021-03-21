@@ -1,4 +1,4 @@
-package features;
+package features.advance;
 
 import java.util.Optional;
 
@@ -78,8 +78,10 @@ public class OptionalTest {
 
         // 供应型函数: 无参有返回, 默认值操作
         Optional<String> optional3 = Optional.ofNullable(getValue(0));
-        String supplierResult = optional3.orElseGet(() -> defaultValue()); // "default value"
-        System.out.println(supplierResult);
+        String supplierResult1 = optional3.orElseGet(() -> defaultValue()); // "default value"
+        String supplierResult2 = optional3.orElseGet(OptionalTest::defaultValue); // 方法引用: 简化lambda表达式
+        System.out.println(supplierResult1);
+        System.out.println(supplierResult2);
 
         // 转换型函数: 有参有返回, 映射转换操作
         Optional<String> mapResult = optional2.map(s -> s.replaceAll("e", "p"));
